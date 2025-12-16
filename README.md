@@ -1,2 +1,2 @@
-# Terraformtest-pollscm
+# Terraformtest-poll
 Creating a terraform test repo
