@@ -3,10 +3,8 @@ pipeline {
 
     tools {
         maven 'maven'
-        jdk 'java11'
     }
-
-    environment {
+     environment {
         MAVEN_OPTS = "-Xmx512m"
     }
 
@@ -18,9 +16,25 @@ pipeline {
             }
         }
 
-        stage('Archive Artifact') {
+        stage('Deploy to Test') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                sh '''
+                scp target/*.war ubuntu@172.31.19.114:/var/lib/tomcat10/webapps/
+                '''
+            }
+        }
+
+        stage('Approval for Prod') {
+            steps {
+                input message: 'Deploy to Production?'
+            }
+        }
+
+        stage('Deploy to Prod') {
+            steps {
+                sh '''
+                scp target/*.war ubuntu@172.31.21.91:/var/lib/tomcat10/webapps/
+                '''
             }
         }
     }
