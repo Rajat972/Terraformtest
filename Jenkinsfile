@@ -7,7 +7,9 @@ pipeline {
 
     stages {
 
-    
+    environment {
+    MAVEN_OPTS = "-Xmx512m"
+}
 
         stage('Build') {
             steps {
