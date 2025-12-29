@@ -1,56 +1,40 @@
 pipeline {
     agent any
 
-    environment {
-        name = 'gaurav'
-    }
-
-  parameters {
-        string(name: 'person', defaultValue: "rajat", description: "who are u")
-        booleanParam(name: 'ismale', defaultValue: true, description: "gender" )
-        choice(name: 'city', choices: ['jaipur','jammu','delhi'], description: "name the city")
+    tools {
+        maven 'maven'
     }
 
     stages {
-        stage('Hello') {
-            environment {
-                name = 'saurav'
+
+    
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
             }
+        }
+
+        stage('Deploy to Test') {
             steps {
                 sh '''
-                cd
-                date
-                echo "${name}"
+                scp target/*.war ubuntu@172.31.19.114:/var/lib/tomcat9/webapps/
                 '''
             }
         }
 
-        stage('Env') {
+        stage('Approval for Prod') {
             steps {
-                sh 'echo "${BUILD_ID}"'
-                echo "Person: ${person}"
-                
+                input message: 'Deploy to Production?'
             }
         }
-        stage('continue ?') {
-            input{
-                message "shoulde we go?"
-                ok "yes we shouled"
+
+        stage('Deploy to Prod') {
+            steps {
+                sh '''
+                scp target/*.war ubuntu@172.31.21.91:/var/lib/tomcat9/webapps/
+                '''
             }
-            steps{
-                sh 'date'
-            }
-        }
-    }
-    post{
-        always{
-           echo "alwys running"
-        }
-        success{
-           echo "alwys sucess"
-        }
-        failure{
-           echo "alwys failure"
         }
     }
 }
