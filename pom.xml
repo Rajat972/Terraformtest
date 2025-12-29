@@ -9,6 +9,9 @@
     <artifactId>helloworld</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- 👇 ADD THIS LINE -->
+    <packaging>war</packaging>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
