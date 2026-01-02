@@ -5,103 +5,156 @@
     <title>Rajat Bandhral | DevOps Engineer</title>
 
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #020617, #020617);
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #020617, #020617);
             color: #e5e7eb;
         }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 60px 0;
+        header {
+            padding: 80px 20px;
             text-align: center;
         }
 
-        h1 {
-            font-size: 48px;
+        header h1 {
+            font-size: 52px;
             color: #22c55e;
-            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
-        h2 {
-            font-size: 24px;
+        header h2 {
+            margin-top: 10px;
+            font-size: 22px;
             color: #93c5fd;
-            margin-bottom: 30px;
         }
 
-        p {
+        header p {
+            margin-top: 20px;
             font-size: 18px;
-            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            color: #cbd5f5;
+        }
+
+        section {
+            width: 85%;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: #020617;
-            border: 1px solid #22c55e;
-            border-radius: 10px;
+            border-radius: 14px;
             padding: 30px;
-            margin-top: 40px;
+            text-align: center;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .skills span {
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
+        }
+
+        .card h3 {
+            color: #22c55e;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #cbd5f5;
+            line-height: 1.6;
+        }
+
+        .badge {
             display: inline-block;
-            margin: 8px;
-            padding: 8px 14px;
+            margin: 6px;
+            padding: 8px 16px;
             border-radius: 20px;
-            background: #22c55e;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
             color: #020617;
             font-weight: bold;
+            font-size: 14px;
         }
 
         footer {
-            margin-top: 60px;
+            text-align: center;
+            padding: 40px 20px;
             font-size: 14px;
             color: #9ca3af;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer span {
+            color: #22c55e;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-
+<header>
     <h1>Rajat Bandhral</h1>
     <h2>DevOps Engineer | AWS | Jenkins | Docker</h2>
-
     <p>
-        I am a passionate DevOps engineer focused on building automated,
-        scalable, and reliable CI/CD pipelines.
-        I enjoy working with cloud infrastructure, automation tools,
-        and modern DevOps practices.
+        DevOps engineer with hands-on experience in building automated CI/CD pipelines,
+        deploying Java applications on Tomcat, and managing cloud infrastructure on AWS.
+        Passionate about automation, scalability, and reliability.
     </p>
+</header>
+
+<section>
+    <h2 style="text-align:center; color:#93c5fd; margin-bottom:40px;">Skills</h2>
+
+    <div class="grid">
+        <div class="card"><h3>Linux</h3><p>System administration, permissions, services, automation</p></div>
+        <div class="card"><h3>AWS</h3><p>EC2, IAM, VPC, Security Groups</p></div>
+        <div class="card"><h3>Jenkins</h3><p>CI/CD pipelines, approvals, deployments</p></div>
+        <div class="card"><h3>Docker</h3><p>Containerization & image management</p></div>
+        <div class="card"><h3>Git</h3><p>Version control & SCM workflows</p></div>
+        <div class="card"><h3>Tomcat</h3><p>Java application deployment</p></div>
+    </div>
+</section>
+
+<section>
+    <h2 style="text-align:center; color:#93c5fd; margin-bottom:40px;">Featured Project</h2>
 
     <div class="card">
-        <h2>Skills</h2>
-        <div class="skills">
-            <span>Linux</span>
-            <span>AWS</span>
-            <span>Jenkins</span>
-            <span>Docker</span>
-            <span>Git</span>
-            <span>Maven</span>
-            <span>Tomcat</span>
+        <h3>End-to-End CI/CD Pipeline</h3>
+        <p>
+            Designed and implemented a Jenkins CI/CD pipeline that builds a Java WAR
+            using Maven, deploys it to a Tomcat server on DEV, requires manual approval,
+            and then deploys to PROD. SSH-based automation with secure key management.
+        </p>
+        <div style="margin-top:20px;">
+            <span class="badge">Jenkins</span>
+            <span class="badge">Maven</span>
+            <span class="badge">Tomcat</span>
+            <span class="badge">AWS</span>
         </div>
     </div>
+</section>
 
-    <div class="card">
-        <h2>Project</h2>
-        <p>
-            CI/CD pipeline using Jenkins to deploy a Java application
-            on Tomcat (DEV → PROD) with manual approval and SSH-based automation.
-        </p>
-    </div>
-
-    <footer>
-        🚀 Deployed using Jenkins CI/CD | Running on Apache Tomcat
-    </footer>
-
-</div>
+<footer>
+    🚀 Deployed via <span>Jenkins CI/CD</span> | Running on <span>Apache Tomcat</span>
+</footer>
 
 </body>
 </html>
