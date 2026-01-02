@@ -2,158 +2,197 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rajat Bandhral | DevOps Engineer</title>
+    <title>Rajat | DevOps Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at top, #020617, #020617);
-            color: #e5e7eb;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
         }
 
         header {
-            padding: 80px 20px;
-            text-align: center;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header h1 {
-            font-size: 52px;
-            color: #22c55e;
-            letter-spacing: 1px;
+            font-size: 26px;
+            font-weight: 700;
         }
 
-        header h2 {
-            margin-top: 10px;
-            font-size: 22px;
-            color: #93c5fd;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
         }
 
-        header p {
-            margin-top: 20px;
-            font-size: 18px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            color: #cbd5f5;
+        nav a:hover {
+            text-decoration: underline;
         }
 
-        section {
-            width: 85%;
-            margin: auto;
-            padding: 60px 0;
+        .hero {
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+        .hero-text {
+            max-width: 550px;
+            animation: slideIn 1.2s ease;
         }
 
-        .card {
-            background: #020617;
-            border-radius: 14px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(34, 197, 94, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
-        }
-
-        .card h3 {
-            color: #22c55e;
+        .hero-text h2 {
+            font-size: 48px;
             margin-bottom: 15px;
-            font-size: 20px;
         }
 
-        .card p {
-            font-size: 15px;
-            color: #cbd5f5;
+        .hero-text span {
+            color: #ffd86f;
+        }
+
+        .hero-text p {
+            font-size: 18px;
             line-height: 1.6;
+            margin-bottom: 25px;
         }
 
-        .badge {
+        .btn {
             display: inline-block;
-            margin: 6px;
-            padding: 8px 16px;
+            padding: 14px 28px;
+            background: #ffd86f;
+            color: #000;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 35px;
             border-radius: 20px;
-            background: linear-gradient(135deg, #22c55e, #4ade80);
-            color: #020617;
-            font-weight: bold;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 6px;
             font-size: 14px;
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
-            color: #9ca3af;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            margin-top: 40px;
+            background: rgba(0,0,0,0.2);
         }
 
-        footer span {
-            color: #22c55e;
-            font-weight: bold;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-card {
+                margin-top: 40px;
+            }
         }
     </style>
 </head>
-
 <body>
 
 <header>
-    <h1>Rajat Bandhral</h1>
-    <h2>DevOps Engineer | AWS | Jenkins | Docker</h2>
-    <p>
-        DevOps engineer with hands-on experience in building automated CI/CD pipelines,
-        deploying Java applications on Tomcat, and managing cloud infrastructure on AWS.
-        Passionate about automation, scalability, and reliability.
-    </p>
+    <h1>Rajat</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Skills</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
 </header>
 
-<section>
-    <h2 style="text-align:center; color:#93c5fd; margin-bottom:40px;">Skills</h2>
-
-    <div class="grid">
-        <div class="card"><h3>Linux</h3><p>System administration, permissions, services, automation</p></div>
-        <div class="card"><h3>AWS</h3><p>EC2, IAM, VPC, Security Groups</p></div>
-        <div class="card"><h3>Jenkins</h3><p>CI/CD pipelines, approvals, deployments</p></div>
-        <div class="card"><h3>Docker</h3><p>Containerization & image management</p></div>
-        <div class="card"><h3>Git</h3><p>Version control & SCM workflows</p></div>
-        <div class="card"><h3>Tomcat</h3><p>Java application deployment</p></div>
-    </div>
-</section>
-
-<section>
-    <h2 style="text-align:center; color:#93c5fd; margin-bottom:40px;">Featured Project</h2>
-
-    <div class="card">
-        <h3>End-to-End CI/CD Pipeline</h3>
+<section class="hero">
+    <div class="hero-text">
+        <h2>Hello, I'm <span>Rajat</span></h2>
         <p>
-            Designed and implemented a Jenkins CI/CD pipeline that builds a Java WAR
-            using Maven, deploys it to a Tomcat server on DEV, requires manual approval,
-            and then deploys to PROD. SSH-based automation with secure key management.
+            A passionate <b>DevOps Engineer</b> focused on CI/CD pipelines,
+            cloud automation, and scalable deployments.
+            Turning ideas into reliable systems 🚀
         </p>
-        <div style="margin-top:20px;">
-            <span class="badge">Jenkins</span>
-            <span class="badge">Maven</span>
-            <span class="badge">Tomcat</span>
-            <span class="badge">AWS</span>
+        <a href="#" class="btn">Hire Me</a>
+    </div>
+
+    <div class="hero-card">
+        <h3>My Skills</h3>
+        <div class="skills">
+            <span>Linux</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Jenkins</span>
+            <span>AWS</span>
+            <span>Terraform</span>
+            <span>Git</span>
+            <span>CI/CD</span>
         </div>
     </div>
 </section>
 
 <footer>
-    🚀 Deployed via <span>Jenkins CI/CD</span> | Running on <span>Apache Tomcat</span>
+    © 2026 Rajat | Built with ❤️ & DevOps
 </footer>
 
 </body>
