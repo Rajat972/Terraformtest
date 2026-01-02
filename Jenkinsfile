@@ -48,7 +48,7 @@ pipeline {
                         sudo rm -rf /var/lib/tomcat10/webapps/myapp*
                     "
 
-                    scp target/*.war ubuntu@172.31.21.91 :/tmp/
+                    scp target/*.war ubuntu@172.31.21.91:/tmp/
 
                     ssh ubuntu@172.31.21.91  "
                         sudo mv /tmp/*.war /var/lib/tomcat10/webapps/ &&
